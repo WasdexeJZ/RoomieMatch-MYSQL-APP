@@ -1,0 +1,40 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql-app
+    environment:
+      MYSQL_ROOT_PASSWORD: r0qcBeCZ*)a_8#[b8)cKR?
+      MYSQL_USER: project15_user
+      MYSQL_PASSWORD: C$MD;,K)x:Y?_nm*jH9)cKR
+      MYSQL_DATABASE: project15
+    ports:
+      - 4406:3306
+    volumes: 
+      - ./persistence_app:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 60s
+      retries: 5
+
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql-app
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: project15_user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: project15
+    ports:
+      - 4406:3306
+    volumes: 
+      - ./persistence_app:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 60s
+      retries: 5
+
+
