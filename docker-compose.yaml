@@ -1,23 +1,21 @@
 services:
-
-
   db:
     build: ./mysql
 
-    container_name: mysql-app
+    container_name: mysql-app-rm
 
-    image: mysql-app
+    image: mysql-app-rm
 
     environment:
       MYSQL_ROOT_PASSWORD: U%bLQ+Ny%*p9C)kZ;AmUG@R
-      MYSQL_USER: project15_user
+      MYSQL_USER: rm_user
       MYSQL_PASSWORD: vrB=(rNg}/PESe(Z!RmF%3[v9
-      MYSQL_DATABASE: project15
+      MYSQL_DATABASE: RoomieMatch
 
     ports:
       - 4406:3306
 
-    volumes: 
+    volumes:
       - persistence_app:/var/lib/mysql
 
     networks:
@@ -26,18 +24,12 @@ services:
     restart: unless-stopped
 
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 60s
       retries: 10
 
-
-
-
 volumes:
   persistence_app:
-
-
-
 
 networks:
   app_network:
