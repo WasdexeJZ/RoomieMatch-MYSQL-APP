@@ -16,7 +16,7 @@ services:
       - 4406:3306
 
     volumes:
-      - persistence_app:/var/lib/mysql
+      - persistence_db_app_rm:/var/lib/mysql
 
     networks:
       - app_network
@@ -28,8 +28,14 @@ services:
       timeout: 60s
       retries: 10
 
+
+
+
 volumes:
-  persistence_app:
+  persistence_db_app_rm:
+
+
+
 
 networks:
   app_network:
